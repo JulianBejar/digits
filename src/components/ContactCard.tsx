@@ -3,7 +3,6 @@
 import { Contact } from '@/lib/validationSchemas';
 import { Card, Image } from 'react-bootstrap';
 
-/* Renders a single contact. See list/page.tsx. */
 const ContactCard = ({ contact }: { contact: Contact }) => (
   <Card className="h-100">
     <Card.Header>
