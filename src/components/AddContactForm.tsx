@@ -72,13 +72,9 @@ const AddContactForm: React.FC = () => {
                   <div className="invalid-feedback">{errors.quantity?.message}</div>
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label>Condition</Form.Label>
-                  <select {...register('condition')} className={`form-control ${errors.condition ? 'is-invalid' : ''}`}>
-                    <option value="excellent">Excellent</option>
-                    <option value="good">Good</option>
-                    <option value="fair">Fair</option>
-                    <option value="poor">Poor</option>
-                  </select>
+                  <Form.Label>Description</Form.Label>
+                <textarea {...register('condition')} className={`form-control ${errors.condition ? 'is-invalid' : ''}`}>
+                </textarea>
                   <div className="invalid-feedback">{errors.condition?.message}</div>
                 </Form.Group>
                 <input type="hidden" {...register('owner')} value={currentUser} />
