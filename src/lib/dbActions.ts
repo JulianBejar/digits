@@ -49,6 +49,22 @@ export async function addContact(contact: {
       owner: contact.owner,
     },
   });
+  redirect('/list');
+}
+
+export async function editContact(contact: Contact) {
+  await prisma.contact.update({
+    where: { id: contact.id },
+    data: {
+      firstName: contact.firstName,
+      lastName: contact.lastName,
+      address: contact.address,
+      image: contact.image,
+      description: contact.description,
+      owner: contact.owner,
+    },
+  });
+  redirect('/list');
 }
 /**
  * Edits an existing stuff in the database.
