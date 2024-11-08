@@ -8,7 +8,7 @@ import swal from 'sweetalert';
 import { redirect } from 'next/navigation';
 import { addContact } from '@/lib/dbActions';
 import LoadingSpinner from '@/components/LoadingSpinner';
-import { AddStuffSchema } from '@/lib/validationSchemas';
+import { AddContactSchema } from '@/lib/validationSchemas';
 
 const onSubmit = async (data: { firstName: string,
   lastName: string,
@@ -24,7 +24,7 @@ const onSubmit = async (data: { firstName: string,
   });
 };
 
-const AddStuffForm: React.FC = () => {
+const AddContactForm: React.FC = () => {
   const { data: session, status } = useSession();
   // console.log('AddStuffForm', status, session);
   const currentUser = session?.user?.email || '';
@@ -34,7 +34,7 @@ const AddStuffForm: React.FC = () => {
     reset,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(AddStuffSchema),
+    resolver: yupResolver(AddContactSchema),
   });
   if (status === 'loading') {
     return <LoadingSpinner />;
@@ -46,24 +46,24 @@ const AddStuffForm: React.FC = () => {
   return (
     <Container className="py-3">
       <Row className="justify-content-center">
-        <Col xs={5}>
+        <Col xs={10}>
           <Col className="text-center">
-            <h2>Add Stuff</h2>
+            <h2>Add Contact</h2>
           </Col>
           <Card>
             <Card.Body>
               <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group>
-                  <Form.Label>Name</Form.Label>
+                  <Form.Label>First Name</Form.Label>
                   <input
                     type="text"
-                    {...register('name')}
-                    className={`form-control ${errors.name ? 'is-invalid' : ''}`}
+                    {...register('firstName')}
+                    className={`form-control ${errors.firstName ? 'is-invalid' : ''}`}
                   />
-                  <div className="invalid-feedback">{errors.name?.message}</div>
+                  <div className="invalid-feedback">{errors.firstName?.message}</div>
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label>Quantity</Form.Label>
+                  <Form.Label>Last Name</Form.Label>
                   <input
                     type="number"
                     {...register('quantity')}
@@ -105,4 +105,4 @@ const AddStuffForm: React.FC = () => {
   );
 };
 
-export default AddStuffForm;
+export default AddContactForm;
