@@ -41,7 +41,7 @@ model Stuff {
 }
 
 model Contact {
-  id          Int    @id @default(autoincrement())
+  id          Int     @id @default(autoincrement())
   firstName   String
   lastName    String
   address     String
