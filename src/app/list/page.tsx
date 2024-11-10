@@ -16,14 +16,12 @@ const ListPage = async () => {
 
   const owner = session?.user!.email || '';
 
-  // Fetch contacts from the database
   const dbContacts: Contact[] = await prisma.contact.findMany({
     where: {
       owner,
     },
   });
 
-  // If no contacts are found, use hardcoded contacts
   const contacts = dbContacts.length > 0 ? dbContacts : [
     {
       id: 1,
@@ -59,7 +57,6 @@ const ListPage = async () => {
     },
   ];
 
-  // Fetch notes related to each contact
   const notes: Note[] = await prisma.note.findMany({
     where: {
       owner,
@@ -74,7 +71,6 @@ const ListPage = async () => {
             <h1 className="text-center">List Contacts</h1>
             <Row xs={1} md={2} lg={3} className="g-4">
               {contacts.map((contact) => {
-                // Filter notes for each contact
                 const contactNotes = notes.filter((note) => note.contactId === contact.id);
 
                 return (

@@ -25,7 +25,6 @@ const onSubmit = async (data: { note: string;
 
 const AddNoteForm = ({ contact }: { contact: Contact }) => {
   const { data: session, status } = useSession();
-  // console.log('AddStuffForm', status, session);
   const currentUser = session?.user?.email || '';
   const {
     register,
@@ -44,11 +43,6 @@ const AddNoteForm = ({ contact }: { contact: Contact }) => {
 
   return (
     <Container className="py-3">
-      <Row className="justify-content-center">
-        <Col xs={10}>
-          <Col className="text-center">
-            <h2>Add Note</h2>
-          </Col>
           <Card>
             <Card.Header>
               Add Timestamped Note
@@ -83,8 +77,6 @@ const AddNoteForm = ({ contact }: { contact: Contact }) => {
               </Form>
             </Card.Body>
           </Card>
-        </Col>
-      </Row>
     </Container>
   );
 };

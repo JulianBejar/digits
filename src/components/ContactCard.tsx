@@ -6,7 +6,6 @@ import NoteItem from '@/components/NoteItem';
 import AddNoteForm from './AddNoteForm';
 
 const ContactCard = ({ contact, notes }: { contact: Contact, notes: Note[] }) => {
-  // Ensure notes is always an array, even if it's empty
   const safeNotes = notes || [];
 
   return (
