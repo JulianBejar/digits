@@ -33,7 +33,6 @@ async function main() {
     } else {
       condition = 'fair';
     }
-    console.log(`  Adding stuff: ${data.name} (${data.owner})`);
     await prisma.stuff.upsert({
       where: { id: index },
       update: {},

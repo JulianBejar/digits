@@ -4,7 +4,6 @@ import { loggedInProtectedPage } from '@/lib/page-protection';
 import AddContactForm from '@/components/AddContactForm';
 
 const AddStuff = async () => {
-  // Protect the page, only logged in users can access it.
   const session = await getServerSession(authOptions);
   loggedInProtectedPage(
     session as {
