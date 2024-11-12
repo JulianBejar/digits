@@ -3,7 +3,7 @@ To install make sure to download the github repo. Open the main branch or cleanu
 
 ## Landing Page
 
-<img src="images/i-Companion-Landing-Page.png" alt="landing page mockup" width="300">
+<img src="Screenshot 2024-11-11 at 10.14.58 PM.png" alt="landing page" width="300">
 
 ## Walkthrough
 
